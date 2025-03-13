@@ -68,19 +68,18 @@ if text:  # Ensure the file isn't empty
 
     cart = []
     while True:
-        product = input("\033[1;34mEnter product name (or press Enter to finish): \033[1;36m").strip()
+        product = input("\033[1;34mEnter product name (or press Enter to finish or type 'menu' for the shopping list): \033[1;36m").strip().lower()
 
         if not product:  # Exit if the user enters nothing
             print("\033[1;36mCheckout complete!\033[0m")
             break
 
-        if product == "_slogin":
-            adid = input("\033[1;34mAdmin ID: \033[0m").strip()
-            if adid in admins:
-                admin(admins[adid])
-            else:
-                print("\033[1;31mInvalid Admin ID.\033[0m")
-            continue  # Don't treat `_slogin` as a product
+        if product == "menu":
+            print("\n\033[1;36m--- Shopping List ---\033[0m")
+            for pname, pinfo in products.items():
+                print(f"\033[1;32m{pname.capitalize()}\033[0m - ${pinfo['price']:.2f} per {pinfo['koe']} | Stock: {pinfo['stock']}")
+            print("\033[1;36m--------------------\033[0m")
+            continue  # Go back to asking for a product
 
         if product in products:
             try:
@@ -88,17 +87,18 @@ if text:  # Ensure the file isn't empty
 
                 if item.get("koe") == "kg":
                     kg = input("\033[1;34mHow heavy is it in kg? \033[1;36m").strip()
-                    item["kg"] = float(kg)  # Convert to float for calculations
-
-                okay = input("\033[1;34mHow many would you like? \033[1;36m").strip()
-                quantity = int(okay)
+                    item["kg"] = float(kg)  # ✅ Save correct weight in cart
+                    quantity = item["kg"]
+                else:
+                    quantity = int(input("\033[1;34mHow many would you like? \033[1;36m").strip())
+                    item["quantity"] = quantity  # ✅ Save correct quantity in cart
 
                 # Check if enough stock is available
                 if quantity > products[product]["stock"]:
                     print("\033[1;31mNot enough stock available!\033[0m")
                     continue
 
-                item["qual"] = quantity
+                item["quantity"] = quantity  # Store only "quantity"
                 cart.append(item)
 
                 # Update stock and buy count
@@ -113,12 +113,17 @@ if text:  # Ensure the file isn't empty
                 print("\033[1;31mInvalid quantity. Please enter a number.\033[0m")
             except Exception as e:
                 print(f"\033[1;31mError: {e}\033[0m")
+
         else:
             print("\033[1;31mProduct not found. Please try again.\033[0m")
 
-    print("\033[1;35mFinal Cart:\033[0m", cart)
     print("\033[1;34mGenerating receipt....\033[0m")
-    os.system("cls" if os.name == "nt" else "clear")  # Cross-platform clear screen
-    inst = checkjson.DictDecoder(); inst.generate_receipt(cart)
+    os.system("cls" if os.name == "nt" else "clear")  # Clear screen before showing the receipt
+
+    inst = checkjson.DictDecoder()
+    inst.generate_receipt(cart)
+
+    input("\n\033[1;33mPress Enter to exit CheckoutPy...\033[0m")  
+
 else:
     print("\033[1;31mError: data.json is empty or missing!\033[0m")
