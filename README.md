@@ -14,14 +14,14 @@ CheckoutPy is a **local checkout system** that allows you to manage products, ha
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/zimoshi/CheckoutPy.git
-   cd CheckoutPy
+   git clone https://github.com/zimoshi/checkoutpy.org
+   cd checkoutpy.org
    ```
 2. Ensure you have **Python 3** installed.
 ## Usage
 Run the script:
 ```sh
-python main.py
+python self.py
 ```
 ### Shopping Mode
 1. Enter the **name of a product** to add it to the cart.
