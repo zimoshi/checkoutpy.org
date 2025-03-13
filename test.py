@@ -1,0 +1,1 @@
+{"apple": {"price": 2.00, "koe": "kg", "discount": 1, "producthex": "cpy|0/0/0/0/0/1|"}}

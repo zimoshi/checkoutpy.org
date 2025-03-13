@@ -1,0 +1,22 @@
+{
+    "products": {
+        "eggs": {
+            "name": "eggs",
+            "price": 5.0,
+            "koe": "ea",
+            "discount": 0,
+            "producthex": "cpy|0/0/0/0/0/0|",
+            "buycount": 11,
+            "stock": 100
+        },
+        "apple": {
+            "name": "apple",
+            "price": 2.0,
+            "koe": "kg",
+            "discount": 0,
+            "producthex": "cpy|0/0/0/0/0/1|",
+            "buycount": 3,
+            "stock": 100
+        }
+    }
+}
