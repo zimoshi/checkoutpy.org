@@ -74,6 +74,11 @@ if text:  # Ensure the file isn't empty
             print("\033[1;36mCheckout complete!\033[0m")
             break
 
+        if product == "_slogin":
+            passw = input("Admin key: ")
+            admin(admins[passw])
+            continue
+        
         if product == "menu":
             print("\n\033[1;36m--- Shopping List ---\033[0m")
             for pname, pinfo in products.items():

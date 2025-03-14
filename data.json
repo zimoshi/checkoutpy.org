@@ -6,8 +6,8 @@
             "koe": "ea",
             "discount": 0,
             "producthex": "cpy|0/0/0/0/0/0|",
-            "buycount": 27,
-            "stock": 20
+            "buycount": 32,
+            "stock": 15
         },
         "apple": {
             "name": "apple",
@@ -78,8 +78,8 @@
             "koe": "kg",
             "discount": 0,
             "producthex": "cpy|0/0/0/0/0/8|",
-            "buycount": 90.0,
-            "stock": 20
+            "buycount": 92.0,
+            "stock": 18.0
         },
         "butter": {
             "name": "butter",
@@ -141,8 +141,8 @@
             "koe": "kg",
             "discount": 0,
             "producthex": "cpy|0/0/0/0/1/5|",
-            "buycount": 40.0,
-            "stock": 20
+            "buycount": 41.0,
+            "stock": 19.0
         },
         "lettuce": {
             "name": "lettuce",
