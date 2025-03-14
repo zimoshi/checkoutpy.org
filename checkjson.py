@@ -56,3 +56,11 @@ class DictDecoder():
         print("\033[1;34m--- Thank you for shopping! ---\033[0m\n")
 
         return total
+
+    def save_products(self, path, products):
+        try:
+            with open(path, "w") as f:
+                json.dump({"products": products}, f, indent=4)
+            print("\033[1;32mProducts updated successfully!\033[0m")
+        except Exception as e:
+            print("\033[1;31mError saving products:\033[0m", e)
