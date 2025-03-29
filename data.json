@@ -269,6 +269,15 @@
             "producthex": "cpy|0/0/0/0/2/9|",
             "buycount": 44.0,
             "stock": 20
+        },
+        "fejioa": {
+            "name": "fejioa",
+            "price": 7.0,
+            "koe": "kg",
+            "discount": 20,
+            "producthex": "cpy|0/0/0/0/3/0|",
+            "stock": 5.0,
+            "buycount": 2.0
         }
     }
 }

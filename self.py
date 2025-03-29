@@ -4,7 +4,7 @@ import os
 
 text = openmanager._open("data.json", "r")
 
-admins = {"|0|": "zimo1", "|1|": "zimo2", "|2|": "zimo3"}
+admins = {"|0|": "zimo", "|1|": "jason", "|2|": "leah"}
 
 if text:  # Ensure the file isn't empty
     products = checkjson.DictDecoderProducts().decode(text)
